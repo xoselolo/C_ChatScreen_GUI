@@ -16,6 +16,8 @@
 
 #define USERNAME_MAXCHAR 30
 #define MESSAGE_MAXCHAR 1000
+#define HORA_MAXCHAR 9
+#define CHAT_MAXCHAR 2000
 
 typedef struct{
     int hores;
@@ -24,16 +26,27 @@ typedef struct{
 }Hora;
 
 typedef struct {
-    int id_missatge;
+    int id_missatge; // TODO :treure'l
     char content[MESSAGE_MAXCHAR];
     char sender[USERNAME_MAXCHAR];
-    Hora hora;
+    Hora hora; // todo: char hora[HORA_MAXCHAR];
 }Missatge;
 
 typedef struct{
     int num_missatges;
     Missatge* missatges;
 }Screen;
+
+typedef struct{
+    long bytesLlegits; // indica fins on ha llegit l'usuari
+    char missatges[MESSAGE_MAXCHAR];
+    int hasToReadAgain; // indica si hi ha mes missatges per llegir
+}Chat;
+
+typedef struct{
+    char username[USERNAME_MAXCHAR];
+    long bytesLlegits; // fins on hem llegit
+}GetChat;
 
 //static char SCREEN_input[MESSAGE_MAXCHAR];
 
